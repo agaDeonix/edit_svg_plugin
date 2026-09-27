@@ -1,0 +1,27 @@
+<idea-plugin>
+    <id>com.editsvg.vector-editor</id>
+    <name>Vector Drawable Editor</name>
+    <vendor url="https://github.com/agaDeonix/edit_svg_plugin">agaDeonix</vendor>
+
+    <description><![CDATA[
+    Visual editor for Android <code>vector</code> drawable XML: preview, hierarchy,
+    contextual properties, path point editing, and optimization.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileEditorProvider implementation="com.editsvg.vector.editor.VectorDrawableEditorProvider"/>
+        <notificationGroup id="VectorDrawableEditor" displayType="BALLOON"/>
+    </extensions>
+
+    <actions>
+        <action id="VectorDrawable.Optimize"
+                class="com.editsvg.vector.action.OptimizeVectorDrawableAction"
+                text="Optimize Vector Drawable"
+                description="Simplify pathData and trim numeric noise in the current vector XML">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
